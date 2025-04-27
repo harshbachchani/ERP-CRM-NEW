@@ -30,11 +30,21 @@ methods.create = async (req, res) => {
 };
 
 methods.delete = async (req, res) => {
-  return res.status(403).json({
-    success: false,
-    result: null,
-    message: "you can't delete payment mode after it has been created",
-  });
+  try {
+    const { id } = req.params;
+    const result = await Model.findOneAndDelete({ _id: id });
+    if (!result) {
+      return res.status(404).json({ success: false, message: 'Payment mode not found' });
+    }
+    return res.status(200).json({
+      success: true,
+      message: 'Payment mode deleted successfully',
+      result,
+    });
+  } catch (error) {
+    console.error('Error deleting payment mode:', error);
+    return res.status(400).json({ success: false, message: 'Error deleting payment mode' });
+  }
 };
 
 methods.update = async (req, res) => {

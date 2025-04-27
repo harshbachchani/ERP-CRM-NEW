@@ -30,11 +30,16 @@ methods.create = async (req, res) => {
 };
 
 methods.delete = async (req, res) => {
-  return res.status(403).json({
-    success: false,
-    result: null,
-    message: "you can't delete tax after it has been created",
-  });
+  try {
+    const { id } = req.params;
+    const result = await Model.findByIdAndDelete(id);
+    return res.status(200).json({ success: true, result, message: 'Tax deleted successfully' });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Error deleting tax',
+    });
+  }
 };
 
 methods.update = async (req, res) => {
