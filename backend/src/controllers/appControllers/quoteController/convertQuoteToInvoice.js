@@ -42,6 +42,7 @@ const convertQuoteToInvoice = async (req, res) => {
       price: item.price,
       total: item.total,
     })),
+    currency: quote.currency,
     taxRate: quote.taxRate,
     subTotal: quote.subTotal,
     taxTotal: quote.taxTotal,
