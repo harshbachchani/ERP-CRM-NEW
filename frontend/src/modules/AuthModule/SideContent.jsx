@@ -31,7 +31,7 @@ export default function SideContent() {
         />
         <div style={{ height: '10px' }}></div>
 
-        <Title level={3}>{translate('Powering your workflow')} :</Title>
+        <Title level={3}>{translate('Manage Your Company With')} :</Title>
 
         <div className="space20"></div>
         <ul className="list-checked" style={{paddingRight:0}}>
@@ -39,7 +39,7 @@ export default function SideContent() {
             <Space direction="vertical">
               <Text strong>{translate('All-in-one tool')}</Text>
 
-              <Text>{translate('From first contact to final delivery-all in one place."')}</Text>
+              <Text>{translate('Run And Scale Your Erp Crm Apps')}</Text>
             </Space>
           </li>
 
