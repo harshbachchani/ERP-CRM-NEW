@@ -5,6 +5,7 @@ import {} from 'react-router-dom';
 import { Navigate, useLocation, useRoutes } from 'react-router-dom';
 import { useAppContext } from '@/context/appContext';
 
+import RegisterPage from '@/pages/Register';
 import routes from './routes';
 
 export default function AppRouter() {

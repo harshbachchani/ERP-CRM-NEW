@@ -44,6 +44,20 @@
   background: none;
 }
 
+.new-user-section {
+  display: flex;
+  align-items: center;
+  margin-top:10px;
+
+}
+.new-user-text{
+  font-weight: 500 !important;
+}
+.new-user-button {
+  border-radius: 20px;
+  margin-left: 5px;
+  padding: 0 10px;
+}
 .App {
   text-align: center;
 }

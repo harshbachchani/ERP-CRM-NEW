@@ -1,24 +1,18 @@
 import { useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-import useLanguage from '@/locale/useLanguage'; 
-
+import useLanguage from '@/locale/useLanguage';
 import { Form, Button } from 'antd';
-
 import { login } from '@/redux/auth/actions';
 import { selectAuth } from '@/redux/auth/selectors';
-import LoginForm from '@/forms/LoginForm';
+import RegisterForm from '@/forms/RegisterForm';
 import Loading from '@/components/Loading';
 import AuthModule from '@/modules/AuthModule';
-import { Divider } from 'antd';
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const translate = useLanguage();
   const { isLoading, isSuccess } = useSelector(selectAuth);
   const navigate = useNavigate();
-  // const size = useSize();
 
   const dispatch = useDispatch();
   const onFinish = (values) => {
@@ -34,14 +28,14 @@ const LoginPage = () => {
       <Loading isLoading={isLoading}>
         <Form
           layout="vertical"
-          name="normal_login"
+          name="normal_register"
           className="login-form"
           initialValues={{
             remember: true,
           }}
           onFinish={onFinish}
         >
-          <LoginForm />
+          <RegisterForm />
           <Form.Item>
             <Button
               type="primary"
@@ -50,25 +44,15 @@ const LoginPage = () => {
               loading={isLoading}
               size="large"
             >
-              {translate('Log in')}
+              {translate('Register')}
             </Button>
           </Form.Item>
-          <div className='new-user-container'>
-            <span className='new-user-text'>{translate('New User?')}</span>
-            <Button
-              size="small"
-              onClick={() => navigate('/register')}
-              type='link'
-            >
-              {translate('Register Now!')}
-            </Button>
-          </div>
         </Form>
       </Loading>
     );
   };
 
-  return <AuthModule authContent={<FormContainer />} AUTH_TITLE="Sign in" />;
+  return <AuthModule authContent={<FormContainer />} AUTH_TITLE="Sign Up" />;
 };
 
-export default LoginPage;
+export default RegisterPage;

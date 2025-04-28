@@ -10,7 +10,7 @@ export default function RegisterForm({ userLocation }) {
 
   return (
     <>
-      <Form.Item
+        <Form.Item
         name="name"
         label={translate('name')}
         rules={[
@@ -23,14 +23,14 @@ export default function RegisterForm({ userLocation }) {
       </Form.Item>
       <Form.Item
         name="email"
-        label={translate('email')}
+        label={translate('Email')}
         rules={[
           {
-            required: true,
+            required: true, message: 'Please enter your email'
           },
           {
             type: 'email',
-          },
+          }
         ]}
       >
         <Input
@@ -39,7 +39,7 @@ export default function RegisterForm({ userLocation }) {
           size="large"
         />
       </Form.Item>
-      <Form.Item
+       <Form.Item
         name="password"
         label={translate('password')}
         rules={[
@@ -70,7 +70,7 @@ export default function RegisterForm({ userLocation }) {
       >
         <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} size="large" />
       </Form.Item> */}
-      <Form.Item
+          <Form.Item
         label={translate('country')}
         name="country"
         rules={[
@@ -96,14 +96,7 @@ export default function RegisterForm({ userLocation }) {
           size="large"
         >
           {countryList.map((language) => (
-            <Select.Option
-              key={language.value}
-              value={language.value}
-              label={translate(language.label)}
-            >
-              {language?.icon && language?.icon + ' '}
-              {translate(language.label)}
-            </Select.Option>
+            <Select.Option key={language.value} value={language.value} label={translate(language.label)}>{language?.icon && language?.icon + ' '}{translate(language.label)}</Select.Option>
           ))}
         </Select>
       </Form.Item>
