@@ -1,14 +1,9 @@
 import { lazy } from 'react';
 
-import {  } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 const RegisterPage = lazy(() => import('@/pages/Register'));
-const LoginPage = lazy(() => import('@/pages/Login.jsx'));
 const Logout = lazy(() => import('@/pages/Logout.jsx'));
 const NotFound = lazy(() => import('@/pages/NotFound.jsx'));
-const AuthRoutes=[
-  {path: '/register', element: <RegisterPage />}
-]
-
 
 const Dashboard = lazy(() => import('@/pages/Dashboard'));
 const Customer = lazy(() => import('@/pages/Customer'));
@@ -57,7 +52,7 @@ const Currency = lazy(() => import('@/pages/Currency'));
 let routes = {
   expense: [],
   default: [
-    ...AuthRoutes,
+    { path: '/register', element: <RegisterPage /> },
     {
       path: '/login',
       element: <Navigate to="/" />,
@@ -66,8 +61,7 @@ let routes = {
       path: '/verify/*',
       element: <Navigate to="/" />,
     },
-  
-    
+
     {
       path: '/resetpassword/*',
       element: <Navigate to="/" />,
