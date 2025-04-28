@@ -1,5 +1,5 @@
 import { Space, Layout, Divider, Typography } from 'antd';
-import logo from '@/style/images/idurar-crm-erp.svg';
+import logo from '@/style/images/Vertex_logo.svg';
 import useLanguage from '@/locale/useLanguage';
 import { useSelector } from 'react-redux';
 import { selectLangDirection } from '@/redux/translate/selectors';
@@ -16,7 +16,7 @@ export default function SideContent() {
       style={{
         padding: '150px 30px 30px',
         width: '100%',
-        maxWidth: '400px',
+        maxWidth: '450px',
         margin: '0 auto',
       }}
       className="sideContent"
@@ -24,13 +24,14 @@ export default function SideContent() {
       <div style={{ width: '100%' }}>
         <img
           src={logo}
-          alt="IDURAR ERP CRM"
-          style={{ margin: '0 auto 40px', display: 'block' }}
-          height={63}
-          width={220}
+          alt="VERTEX ERP CRM"
+          style={{ margin: '0 0 12px', display: 'block' }}
+          height={100}
+          width={250}
         />
-        <div className="space40"></div>
-        <Title level={3}>{translate('Manage your company with')} :</Title>
+        <div style={{ height: '10px' }}></div>
+
+        <Title level={3}>{translate('Powering your workflow')} :</Title>
 
         <div className="space20"></div>
         <ul className="list-checked" style={{paddingRight:0}}>
@@ -38,7 +39,7 @@ export default function SideContent() {
             <Space direction="vertical">
               <Text strong>{translate('All-in-one tool')}</Text>
 
-              <Text>{translate('Run and scale your ERP CRM Apps')}</Text>
+              <Text>{translate('From first contact to final delivery-all in one place."')}</Text>
             </Space>
           </li>
 
