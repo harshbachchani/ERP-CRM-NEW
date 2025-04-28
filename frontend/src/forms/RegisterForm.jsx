@@ -55,6 +55,17 @@ export default function RegisterForm({ userLocation }) {
           />
 
       </Form.Item>
+      <Form.Item
+        name="password"
+        label={translate('password')}
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} size="large" />
+      </Form.Item>
         <Form.Item
         label={translate('country')}
         name="country"
