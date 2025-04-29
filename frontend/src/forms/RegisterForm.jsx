@@ -7,6 +7,15 @@ import { countryList } from '@/utils/countryList';
 
 export default function RegisterForm({ userLocation }) {
   const translate = useLanguage();
+  const compareToFirstPassword = ({ getFieldValue }) => ({
+    validator(_, value) {
+      if (!value || getFieldValue('password') === value) {
+        return Promise.resolve();
+      }
+      return Promise.reject(new Error(translate('The two passwords that you entered do not match!')));
+    },
+  });
+
 
   return (
     <>
@@ -62,6 +71,17 @@ export default function RegisterForm({ userLocation }) {
           {
             required: true,
           },
+        ]}
+      >
+        <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} size="large" />
+      </Form.Item>
+      <Form.Item
+        name="confirmPassword"
+        label={translate('confirm password')}
+        dependencies={['password']}
+        rules={[
+          { required: true, message: translate('Please confirm your password!') },
+          compareToFirstPassword,
         ]}
       >
         <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} size="large" />
