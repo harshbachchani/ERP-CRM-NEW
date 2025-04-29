@@ -32,7 +32,7 @@ const RegisterPage = () => {
       >
         <RegisterForm />
         <Form.Item>
-          <Button type="primary" htmlType="submit" size="large">
+          <Button type="primary" htmlType="submit" size="large" className="login-form-button">
             {translate("Send OTP")}
           </Button>
         </Form.Item>
