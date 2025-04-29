@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useLanguage from "@/locale/useLanguage";
 import { Form, Button } from "antd";
 import { selectAuth } from "@/redux/auth/selectors";
@@ -31,11 +31,15 @@ const RegisterPage = () => {
         onFinish={handleSendOtp}
       >
         <RegisterForm />
-        <Form.Item>
+        <div className='button-container'>
           <Button type="primary" htmlType="submit" size="large" className="login-form-button">
             {translate("Send OTP")}
           </Button>
-        </Form.Item>
+        
+          <p>
+            {translate("Already a customer?")} <Link to="/login">{translate("Log In!")}</Link>
+          </p>
+        </div>
       </Form>
     );
   };
