@@ -25,6 +25,7 @@ import {
   ShopOutlined,
   FilterOutlined,
   WalletOutlined,
+  BarChartOutlined,
   ReconciliationOutlined,
 } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
@@ -113,9 +114,9 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: <Link to={'/expenses'}>{translate('expenses')}</Link>,
     },
     {
-      key: 'expensesCategory',
-      icon: <ReconciliationOutlined />,
-      label: <Link to={'/category/expenses'}>{translate('expenses_Category')}</Link>,
+      key: 'inventory',
+      icon: <BarChartOutlined />,
+      label: <Link to={'/inventory'}>{translate('inventory')}</Link>,
     },
     // {
     //   key: 'employee',
