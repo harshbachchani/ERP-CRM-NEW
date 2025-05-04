@@ -315,7 +315,7 @@ function FormElement({ field, feedback, setFeedback }) {
     textarea: <TextArea rows={4} />,
     email: <Input autoComplete="off" placeholder="email@example.com" />,
     number: <InputNumber style={{ width: '100%' }} />,
-    phone: <Input style={{ width: '100%' }} placeholder="+1 123 456 789" />,
+    phone: <Input style={{ width: '100%' }} placeholder="+91 7433421323" />,
     boolean: (
       <Switch
         checkedChildren={<CheckOutlined />}
