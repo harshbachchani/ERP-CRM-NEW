@@ -7,19 +7,10 @@ import { countryList } from '@/utils/countryList';
 
 export default function RegisterForm({ userLocation }) {
   const translate = useLanguage();
-  const compareToFirstPassword = ({ getFieldValue }) => ({
-    validator(_, value) {
-      if (!value || getFieldValue('password') === value) {
-        return Promise.resolve();
-      }
-      return Promise.reject(new Error(translate('The two passwords that you entered do not match!')));
-    },
-  });
-
 
   return (
     <>
-        <Form.Item
+      <Form.Item
         name="name"
         label={translate('name')}
         rules={[
@@ -31,38 +22,22 @@ export default function RegisterForm({ userLocation }) {
         <Input prefix={<UserOutlined className="site-form-item-icon" />} size="large" />
       </Form.Item>
       <Form.Item
-        name="surname"
-        label={translate('last Name')}
-        rules={[
-           {
-            required: true
-          },
-        ]}>
-          <Input
-            prefix={<UserOutlined className="site-form-item-icon" />}
-            
-            size="large"
-        />
-      
-      </Form.Item>
-      <Form.Item
         name="email"
         label={translate('email')}
         rules={[
           {
-            required: true, message: 'Please enter your email'
+            required: true,
           },
           {
             type: 'email',
           },
         ]}
       >
-       <Input
-            prefix={<MailOutlined className="site-form-item-icon" />}
-            type="email"
-            size="large"
-          />
-
+        <Input
+          prefix={<MailOutlined className="site-form-item-icon" />}
+          type="email"
+          size="large"
+        />
       </Form.Item>
       <Form.Item
         name="password"
@@ -75,18 +50,27 @@ export default function RegisterForm({ userLocation }) {
       >
         <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} size="large" />
       </Form.Item>
-      <Form.Item
-        name="confirmPassword"
-        label={translate('confirm password')}
-        dependencies={['password']}
+      {/* <Form.Item
+        name="confirm_password"
+        label={translate('confirm_password')}
         rules={[
-          { required: true, message: translate('Please confirm your password!') },
-          compareToFirstPassword,
+          {
+            required: true,
+          },
+          ({ getFieldValue }) => ({
+            validator(_, value) {
+              if (!value || getFieldValue('password') === value) {
+                return Promise.resolve();
+              }
+              return Promise.reject(new Error('The two passwords that you entered do not match!'));
+            },
+          }),
         ]}
+        hasFeedback
       >
         <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} size="large" />
-      </Form.Item>
-        <Form.Item
+      </Form.Item> */}
+      <Form.Item
         label={translate('country')}
         name="country"
         rules={[
@@ -112,11 +96,17 @@ export default function RegisterForm({ userLocation }) {
           size="large"
         >
           {countryList.map((language) => (
-            <Select.Option key={language.value} value={language.value} label={translate(language.label)}>{language?.icon && language?.icon + ' '}{translate(language.label)}</Select.Option>
+            <Select.Option
+              key={language.value}
+              value={language.value}
+              label={translate(language.label)}
+            >
+              {language?.icon && language?.icon + ' '}
+              {translate(language.label)}
+            </Select.Option>
           ))}
         </Select>
-      
-        </Form.Item>
+      </Form.Item>
     </>
   );
 }

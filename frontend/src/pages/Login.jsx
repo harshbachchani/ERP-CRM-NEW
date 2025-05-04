@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import useLanguage from '@/locale/useLanguage'; 
+import useLanguage from '@/locale/useLanguage';
 
 import { Form, Button } from 'antd';
 
@@ -12,7 +12,6 @@ import { selectAuth } from '@/redux/auth/selectors';
 import LoginForm from '@/forms/LoginForm';
 import Loading from '@/components/Loading';
 import AuthModule from '@/modules/AuthModule';
-import { Divider } from 'antd';
 
 const LoginPage = () => {
   const translate = useLanguage();
@@ -53,16 +52,6 @@ const LoginPage = () => {
               {translate('Log in')}
             </Button>
           </Form.Item>
-          <div className='new-user-container'>
-            <span className='new-user-text'>{translate('New User?')}</span>
-            <Button
-              size="small"
-              onClick={() => navigate('/register')}
-              type='link'
-            >
-              {translate('Register Now!')}
-            </Button>
-          </div>
         </Form>
       </Loading>
     );

@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 
 import { Navigate } from 'react-router-dom';
-const RegisterPage = lazy(() => import('@/pages/Register'));
 const Logout = lazy(() => import('@/pages/Logout.jsx'));
 const NotFound = lazy(() => import('@/pages/NotFound.jsx'));
 
@@ -52,7 +51,6 @@ const Currency = lazy(() => import('@/pages/Currency'));
 let routes = {
   expense: [],
   default: [
-    { path: '/register', element: <RegisterPage /> },
     {
       path: '/login',
       element: <Navigate to="/" />,
