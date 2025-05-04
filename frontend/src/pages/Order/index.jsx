@@ -82,6 +82,9 @@ export default function Order() {
   };
   const config = {
     ...configPage,
+    filter: {
+      enabled: true,
+    },
     dataTableColumns,
     readColumns,
     searchConfig,

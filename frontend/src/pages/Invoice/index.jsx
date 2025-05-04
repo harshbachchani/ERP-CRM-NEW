@@ -110,7 +110,6 @@ export default function Invoice() {
     DATATABLE_TITLE: translate('invoice_list'),
     ADD_NEW_ENTITY: translate('add_new_invoice'),
     ENTITY_NAME: translate('invoice'),
-
     RECORD_ENTITY: translate('record_payment'),
   };
 

@@ -13,7 +13,6 @@ export default function ErpPanel({ config, extra }) {
   const dispatch = useDispatch();
   const { state } = useErpContext();
   const { deleteModal } = state;
-
   const dispatcher = () => {
     dispatch(erp.resetState());
   };

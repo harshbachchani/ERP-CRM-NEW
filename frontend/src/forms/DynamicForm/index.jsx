@@ -15,10 +15,10 @@ import { useSelector } from 'react-redux';
 
 export default function DynamicForm({ fields, isUpdateForm = false }) {
   const [feedback, setFeedback] = useState();
-  const langDirection=useSelector(selectLangDirection)
+  const langDirection = useSelector(selectLangDirection);
 
   return (
-    <div style={{direction:langDirection}}>
+    <div style={{ direction: langDirection }}>
       {Object.keys(fields).map((key) => {
         let field = fields[key];
 
@@ -339,6 +339,7 @@ function FormElement({ field, feedback, setFeedback }) {
         withRedirect={field.withRedirect}
         urlToRedirect={field.urlToRedirect}
         redirectLabel={field.redirectLabel}
+        options={field.filter}
       ></SelectAsync>
     ),
 
