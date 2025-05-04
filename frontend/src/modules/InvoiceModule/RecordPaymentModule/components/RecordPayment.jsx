@@ -15,7 +15,7 @@ import calculate from '@/utils/calculate';
 export default function RecordPayment({ config }) {
   const navigate = useNavigate();
   const translate = useLanguage();
-  let { entity } = config;
+  let { entity, filter } = config;
 
   const dispatch = useDispatch();
 
@@ -61,7 +61,7 @@ export default function RecordPayment({ config }) {
   return (
     <Loading isLoading={isLoading}>
       <Form form={form} layout="vertical" onFinish={onSubmit}>
-        <PaymentForm maxAmount={maxAmount} />
+        <PaymentForm maxAmount={maxAmount} options={filter} />
         <Form.Item>
           <Button type="primary" htmlType="submit">
             {translate('Record Payment')}

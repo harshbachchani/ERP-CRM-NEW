@@ -10,6 +10,9 @@ export const fields = {
     dataIndex: ['expenseCategory', 'name'],
     entity: 'expensecategory',
     required: true,
+    filter: {
+      enabled: true,
+    },
   },
   currency: {
     type: 'selectCurrency',
@@ -20,8 +23,5 @@ export const fields = {
   },
   description: {
     type: 'textarea',
-  },
-  ref: {
-    type: 'string',
   },
 };

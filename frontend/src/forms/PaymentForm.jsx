@@ -7,7 +7,7 @@ import { useMoney, useDate } from '@/settings';
 
 import useLanguage from '@/locale/useLanguage';
 
-export default function PaymentForm({ maxAmount = null, isUpdateForm = false }) {
+export default function PaymentForm({ maxAmount = null, isUpdateForm = false, options }) {
   const translate = useLanguage();
   const { TextArea } = Input;
   const money = useMoney();
@@ -66,10 +66,8 @@ export default function PaymentForm({ maxAmount = null, isUpdateForm = false }) 
           withRedirect={true}
           urlToRedirect="/payment/mode"
           redirectLabel="Add Payment Mode"
+          options={options}
         ></SelectAsync>
-      </Form.Item>
-      <Form.Item label={translate('Reference')} name="ref">
-        <Input />
       </Form.Item>
       <Form.Item label={translate('Description')} name="description">
         <TextArea />
