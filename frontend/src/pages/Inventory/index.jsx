@@ -1,7 +1,8 @@
 import React from 'react';
 import CrudModule from '@/modules/CrudModule/CrudModule';
-import InventoryForm from '@/forms/InventoryForm'; // Retaining InventoryForm
+import DynamicForm from '@/forms/DynamicForm';
 import useLanguage from '@/locale/useLanguage';
+import { fields } from './config'; // Import fields config
 
 export default function Inventory() {
   const translate = useLanguage();
@@ -45,7 +46,7 @@ export default function Inventory() {
 
   const Labels = {
     PANEL_TITLE: translate('product'),
-    DATATABLE_TITLE: translate('product_list'),
+    DATATABLE_TITLE: translate('Inventory'),
     ADD_NEW_ENTITY: translate('add_new_product'),
     ENTITY_NAME: translate('product'),
   };
@@ -63,8 +64,8 @@ export default function Inventory() {
   };
   return (
     <CrudModule
-      createForm={<InventoryForm />} // Retaining InventoryForm
-      updateForm={<InventoryForm isUpdateForm={true} />} // Retaining InventoryForm
+      createForm={<DynamicForm fields={fields} />}
+      updateForm={<DynamicForm fields={fields} isUpdateForm={true} />}
       config={config}
     />
   );
