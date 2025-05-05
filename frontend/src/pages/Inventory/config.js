@@ -2,8 +2,8 @@ export const fields = {
   product: {
     type: 'async',
     label: 'Product',
-    displayLabels: ['name'],
-    dataIndex: ['name'],
+    displayLabels: ['product', 'name'],
+    dataIndex: ['product', 'name'],
     entity: 'product',
     required: true,
   },
@@ -11,7 +11,7 @@ export const fields = {
     type: 'number',
     label: 'Quantity',
     required: true,
-    min: 0, // Ensure non-negative numbers
+    min: 0,
     rules: [
       {
         required: true,
@@ -21,25 +21,6 @@ export const fields = {
         type: 'number',
         min: 0,
         message: 'Quantity must be a non-negative number!',
-      },
-    ],
-  },
-  currency: {
-    type: 'selectCurrency',
-  },
-  unitPrice: {
-    type: 'currency',
-    label: 'Unit Price',
-    required: true,
-    rules: [
-      {
-        required: true,
-        message: 'Please input Unit Price!',
-      },
-      {
-        type: 'number',
-        min: 0,
-        message: 'Unit Price must be a non-negative number!',
       },
     ],
   },
