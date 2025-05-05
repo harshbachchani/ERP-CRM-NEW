@@ -43,7 +43,7 @@ export default function Inventory() {
       dataIndex: ['product', 'price'],
     },
     {
-      title: translate('Unit Price'),
+      title: translate('Currency'),
       dataIndex: ['product', 'currency'],
     },
   ];
