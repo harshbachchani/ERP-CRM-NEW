@@ -32,7 +32,7 @@ export default function Inventory() {
   const dataTableColumns = [
     {
       title: translate('Product'),
-      dataIndex: ['product'],
+      dataIndex: ['product', 'name'],
     },
     {
       title: translate('Quantity'),
@@ -40,7 +40,11 @@ export default function Inventory() {
     },
     {
       title: translate('Unit Price'),
-      dataIndex: ['unitPrice'],
+      dataIndex: ['product', 'price'],
+    },
+    {
+      title: translate('Unit Price'),
+      dataIndex: ['product', 'currency'],
     },
   ];
 
