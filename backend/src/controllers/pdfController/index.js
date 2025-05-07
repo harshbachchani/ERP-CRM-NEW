@@ -47,9 +47,7 @@ exports.generatePdf = async (
       );
       const { moneyFormatter } = await useMoney({ settings: currentCurrency });
       const { dateFormat } = useDate({ settings });
-
       settings.public_server_file = process.env.PUBLIC_SERVER_FILE;
-
       const htmlContent = pug.renderFile('src/pdf/' + modelName + '.pug', {
         model: result,
         settings,

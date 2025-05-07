@@ -67,9 +67,7 @@ router
   .route('/setting/upload/:settingKey?')
   .patch(
     hasPermission(),
-    catchErrors(
-      singleStorageUpload({ entity: 'setting', fieldName: 'settingValue', fileType: 'image' })
-    ),
+    singleStorageUpload({ entity: 'setting', fieldName: 'settingValue', fileType: 'image' }),
     catchErrors(settingController.updateBySettingKey)
   );
 router

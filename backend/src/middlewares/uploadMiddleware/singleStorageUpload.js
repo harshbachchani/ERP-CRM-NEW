@@ -28,7 +28,6 @@ const singleStorageUpload = ({
         }
 
         let _fileName = `${originalname}-${uniqueFileID}${fileExtension}`;
-
         const filePath = `public/uploads/${entity}/${_fileName}`;
         // saving file name and extension in request upload object
         req.upload = {
@@ -41,7 +40,6 @@ const singleStorageUpload = ({
         };
 
         req.body[fieldName] = filePath;
-
         cb(null, _fileName);
       } catch (error) {
         cb(error); // pass the error to the callback
@@ -50,7 +48,6 @@ const singleStorageUpload = ({
   });
 
   let filterType = fileFilter(fileType);
-
   const multerStorage = multer({ storage: diskStorage, fileFilter: filterType }).single('file');
   return multerStorage;
 };

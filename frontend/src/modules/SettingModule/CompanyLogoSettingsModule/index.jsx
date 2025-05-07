@@ -7,7 +7,7 @@ import useLanguage from '@/locale/useLanguage';
 export default function CompanyLogoSettingsModule({ config }) {
   const translate = useLanguage();
   return (
-    <UpdateSettingModule config={config} uploadSettingKey="company_logo" withUpload>
+    <UpdateSettingModule config={config} uploadSettingKey="company_logo" withUpload={true}>
       <SetingsSection
         title={translate('Company Logo')}
         description={translate('Update Company logo')}

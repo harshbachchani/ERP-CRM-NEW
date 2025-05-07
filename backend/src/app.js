@@ -2,7 +2,7 @@ const express = require('express');
 
 const cors = require('cors');
 const compression = require('compression');
-
+const path = require('path');
 const cookieParser = require('cookie-parser');
 
 const coreAuthRouter = require('./routes/coreRoutes/coreAuth');
@@ -24,6 +24,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.static(path.join(__dirname, 'src/public')));
 
 app.use(cookieParser());
 app.use(express.json());
