@@ -8,3 +8,4 @@ export const selectLangDirection = createSelector(
   [selectLangState],
   (translate) => translate.langDirection
 );
+  
